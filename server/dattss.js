@@ -88,6 +88,10 @@ var setup_io = function(io) {
   var io_main = io.of('/s');
   var io_demo = io.of('/demo');
 
+  // FIXME: uncommment below line so that web-socket is used for pushing.
+  //
+  io.set('transports', ['xhr-polling', 'htmlfile', 'jsonp-polling']);
+
   io_main.authorization(function(data, cb_) {
     if(!data.headers.cookie) {
       return cb_('No cookie transmitted', false);
